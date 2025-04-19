@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="player.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.js"></script>
+    <link rel="stylesheet" href="media.css">
+    <title>Mixify Video Player | Watch and Organize YouTube Videos</title>
+    <meta name="description" content="Mixify helps you organize, play, and manage YouTube videos and playlists with advanced controls">
+    <meta property="og:title" content="Mixify Video Player">
+    <meta property="og:description" content="Advanced YouTube video organization tool">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://Mixify.com">
+    <meta property="og:image" content="https://MIxify/preview.jpg">
+    <link rel="shortcut icon" href="https://i.ibb.co/GfxVfHy5/Untitled-design-1.png" type="image/x-icon">
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="header-hero">
+            <header>
+                <div class="logo-container">
+                    <h1>Mixify</h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li>Home</li>
+                        <li>About</li>
+                        <li>News</li>
+                        <li>Services</li>
+                        <li>Contect US</li>
+                    </ul>
+                </nav>
+                
+                <!-- Hamburger Menu Icon -->
+                <div class="right">
+                    <span class="material-symbols-outlined hamburger">menu</span>
+                    <button>
+                        Donate US
+                        <span class="material-symbols-outlined">
+                            arrow_forward
+                        </span>
+                    </button>
+                </div>
+            </header>
+            <!-- Mobile Menu  -->
+            <div class="mobile-menu">
+                <span class="material-symbols-outlined close-menu">close</span>
+                <ul>
+                    <li>Home</li>
+                    <li>About</li>
+                    <li>News</li>
+                    <li>Services</li>
+                    <li>Contect US</li>
+                </ul>
+            </div>
+        </div>
+        <div class="player-container">
+            <container class="top">
+                <div class="top">
+                    <div id="video-wrapper">
+                        <div class="user-input-area" style="display:none;">
+                            <input type="text" id="video-link" placeholder="your video url:">
+                            <button id="save-video-btn">play
+
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+                                    width="24px" fill="#e8eaed">
+                                    <path
+                                        d="M440-320h80v-168l64 64 56-56-160-160-160 160 56 56 64-64v168Zm40 240q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z" />
+                                </svg>
+                            </button>
+
+                        </div>
+                        <div id="player" style="width: 100%; height: 390px; background: #000;"></div>
+                        <div class="player-navigation">
+                            <button id="mark-complete-btn" class="action-btn">
+                                <span class="material-symbols-outlined">check_circle</span>
+                            </button>
+                            <button id="delete-video-btn" class="action-btn danger">
+                                <span class="material-symbols-outlined">delete</span>
+                            </button>
+                            <div class="nav-button-container">
+                                <button id="prev-video-btn" class="nav-btn">
+                                    <span class="material-symbols-outlined">skip_previous</span>
+                                </button>
+                                <button id="next-video-btn" class="nav-btn">
+                                    <span class="material-symbols-outlined">skip_next</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div id="lable-input" class="user-input-area input2">
+                            <input type="text" id="new-play-save-video-link"
+                                placeholder="Enter YouTube video link or playlist">
+                            <button id="new-play-save-video-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+                                    width="24px" fill="#e8eaed">
+                                    <path
+                                        d="M440-320h80v-168l64 64 56-56-160-160-160 160 56 56 64-64v168Zm40 240q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <section class="recently-played-section">
+                        <div class="recently-played-header">
+                            <h3>History</h3>
+                            <button class="clear-recent-btn" onclick="clearRecentlyPlayed()">
+
+                                <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"
+                                    fill="#ffffff">
+                                    <path
+                                        d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z" />
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="r-video">
+                            <div id="recently-played-grid" class="recently-played-grid"></div>
+                        </div>
+                    </section>
+                </div>
+                <div class="bottom">
+                    <div id="progress-container">
+                        <div id="progress-bar"></div>
+                        <div id="progress-text">0%</div>
+                    </div>
+                </div>
+                <button id="delete-all-btn">
+                    Delete All Videos
+                </button>
+                
+                <!-- Add this where you want categories to appear -->
+                <div id="playlist-edit-modal" class="playlist-edit-modal hidden">
+                    <div class="playlist-edit-content">
+                        <div class="playlist-edit-header">
+                            <h3 id="playlist-edit-title">Edit Playlist</h3>
+                            <button class="close-edit-modal">
+                                <span class="material-symbols-outlined">close</span>
+                            </button>
+                        </div>
+                        <div class="playlist-video-list" id="playlist-video-list">
+                            <!-- Videos will be populated here -->
+                        </div>
+                        <div class="playlist-edit-actions">
+                            <button id="delete-playlist-btn" class="danger-btn">
+                                <span class="material-symbols-outlined">delete</span>
+                                Delete Entire Playlist
+                            </button>
+                            <div>
+                                <button id="cancel-playlist-edit" class="secondary-btn">
+                                    Cancel
+                                </button>
+                                <button id="save-playlist-changes" class="primary-btn">
+                                    Save Changes
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </container>
+            <hr>
+            <container class="bottom">
+                <section class="video-grid-section">
+                    <div id="video-grid" class="video-grid swiper"></div>
+                </section>
+                <div id="pagination-controls"></div>
+            </container>
+        </div>
+    </div>
+    </div>
+    
+</body>
+<script src="player.js"></script>
+<script src="https://www.youtube.com/iframe_api"></script>
+<!-- // Add this script to your page -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Mixify Video Player",
+  "description": "Advanced tool for organizing and watching YouTube videos",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "Web Browser",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+</html>
