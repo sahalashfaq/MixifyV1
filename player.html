@@ -5,19 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" 
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="player.css">
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.js"></script>
     <link rel="stylesheet" href="media.css">
     <title>Mixify Video Player | Watch and Organize YouTube Videos</title>
-    <meta name="description" content="Mixify helps you organize, play, and manage YouTube videos and playlists with advanced controls">
-    <meta property="og:title" content="Mixify Video Player">
-    <meta property="og:description" content="Advanced YouTube video organization tool">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://Mixify.com">
-    <meta property="og:image" content="https://MIxify/preview.jpg">
     <link rel="shortcut icon" href="https://i.ibb.co/GfxVfHy5/Untitled-design-1.png" type="image/x-icon">
 </head>
 
@@ -34,18 +28,19 @@
                         <li>About</li>
                         <li>News</li>
                         <li>Services</li>
-                        <li>Contect US</li>
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=sahalashfqseo@gmail.com" target="_blank">
+                            <li>Contect US</li>
+                        </a>
                     </ul>
                 </nav>
-                
+
                 <!-- Hamburger Menu Icon -->
                 <div class="right">
                     <span class="material-symbols-outlined hamburger">menu</span>
                     <button>
-                        Donate US
-                        <span class="material-symbols-outlined">
-                            arrow_forward
-                        </span>
+                        <a href="https://www.buymeacoffee.com/sahalashfaq">
+                            <img src="coffee.png" alt="" srcset="">
+                        </a>
                     </button>
                 </div>
             </header>
@@ -78,20 +73,88 @@
 
                         </div>
                         <div id="player" style="width: 100%; height: 390px; background: #000;"></div>
-                        <div class="player-navigation">
-                            <button id="mark-complete-btn" class="action-btn">
-                                <span class="material-symbols-outlined">check_circle</span>
-                            </button>
-                            <button id="delete-video-btn" class="action-btn danger">
-                                <span class="material-symbols-outlined">delete</span>
-                            </button>
-                            <div class="nav-button-container">
-                                <button id="prev-video-btn" class="nav-btn">
-                                    <span class="material-symbols-outlined">skip_previous</span>
+                        <div class="player-controls">
+                            <div class="player-navigation">
+                                <div class="feature-buttons">
+                                    <!-- <button onclick="showVideoAnalytics()" title="Video Analytics">
+                                        <span class="material-symbols-outlined">analytics</span>
+                                    </button>
+                                    <button onclick="showRecommendations()" title="Recommendations">
+                                        <span class="material-symbols-outlined">add</span>
+                                    </button> -->
+                                    <div class="reaction-buttons">
+                                        <button onclick="addVideoReaction('like')" title="Like">
+                                            <span class="material-symbols-outlined">thumb_up</span>
+                                        </button>
+                                        <button onclick="addVideoReaction('dislike')" title="Dislike">
+                                            <span class="material-symbols-outlined">thumb_down</span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <button id="mark-complete-btn" class="action-btn">
+                                    <span class="material-symbols-outlined">check_circle</span>
                                 </button>
-                                <button id="next-video-btn" class="nav-btn">
-                                    <span class="material-symbols-outlined">skip_next</span>
+                                <button id="delete-video-btn" class="action-btn danger">
+                                    <span class="material-symbols-outlined">delete</span>
                                 </button>
+                                <div class="nav-button-container">
+                                    <button id="prev-video-btn" class="nav-btn">
+                                        <span class="material-symbols-outlined">skip_previous</span>
+                                    </button>
+                                    <button id="next-video-btn" class="nav-btn">
+                                        <span class="material-symbols-outlined">skip_next</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="player-settings-btn">
+                                <button id="player-settings-toggle">
+                                    <span class="material-symbols-outlined">settings</span>
+                                </button>
+                                <div class="player-settings-dropdown hidden">
+                                    <button class="settings-option" onclick="showImportExportMenu()">
+                                        <span class="material-symbols-outlined">import_export</span>
+                                        Import/Export
+                                    </button>
+                                    <button class="settings-option disabled" disabled onclick="toggleDarkMode()">
+                                        <span class="material-symbols-outlined">dark_mode</span>
+                                        light Mode
+                                    </button>
+                                    <button class="settings-option" onclick="toggleAutoPlay()">
+                                        <span class="material-symbols-outlined">play_circle</span>
+                                        Auto-play
+                                        <span class="status-indicator ON">ON</span>
+                                    </button>
+                                    <button class="settings-option" onclick="showPlaybackSpeedMenu()">
+                                        <span class="material-symbols-outlined">speed</span>
+                                        Play Speed
+                                    </button>
+                                    <button class="settings-option" onclick="showQualityMenu()">
+                                        <span class="material-symbols-outlined">hd</span>
+                                        Video Quality
+                                    </button>
+                                    <button class="settings-option" onclick="showSubtitleMenu()">
+                                        <span class="material-symbols-outlined">subtitles</span>
+                                        Subtitles
+                                    </button>
+                                    <button class="settings-option" onclick="showKeyboardShortcuts()">
+                                        <span class="material-symbols-outlined">keyboard</span>
+                                        Shortcuts
+                                    </button>
+                                    <button class="settings-option" onclick="showStatsForNerds()">
+                                        <span class="material-symbols-outlined">monitor_heart</span>
+                                        Stats for Nerds
+                                    </button>
+                                    <button class="settings-option" onclick="toggleMiniPlayer()">
+                                        <span class="material-symbols-outlined">picture_in_picture_alt</span>
+                                        Mini Player
+                                        <span class="status-indicator OFF">OFF</span>
+                                    </button>
+                                    <button class="settings-option" onclick="showTheaterMode()">
+                                        <span class="material-symbols-outlined">theaters</span>
+                                        Theater
+                                        <span class="status-indicator OFF">OFF</span>
+                                    </button>
+                                </div>
                             </div>
                         </div>
 
@@ -106,6 +169,7 @@
                                 </svg>
                             </button>
                         </div>
+                        <!-- Add the second buttons-container here / -->
                     </div>
                     <section class="recently-played-section">
                         <div class="recently-played-header">
@@ -130,27 +194,49 @@
                         <div id="progress-text">0%</div>
                     </div>
                 </div>
-                <button id="delete-all-btn">
-                    Delete All Videos
-                </button>
-                
+
+                <div class="player-button-container">
+                    <button id="delete-all-btn">
+                        <span class="material-symbols-outlined">delete</span>
+                        Delete All Videos
+                    </button>
+                    <div class="filter-buttons">
+                        <button id="show-all-btn" class="filter-btn active">
+                            <span class="material-symbols-outlined">folder_open</span>
+                            Playlist Videos</button>
+                        <button id="show-single-btn" class="filter-btn">
+                            <span class="material-symbols-outlined">folder</span>
+                            Single Videos</button>
+                    </div>
+                </div>
                 <!-- Add this where you want categories to appear -->
                 <div id="playlist-edit-modal" class="playlist-edit-modal hidden">
                     <div class="playlist-edit-content">
                         <div class="playlist-edit-header">
                             <h3 id="playlist-edit-title">Edit Playlist</h3>
                             <button class="close-edit-modal">
-                                <span class="material-symbols-outlined">close</span>
+                                <span class="material-symbols-outlined close-popup">close</span>
                             </button>
                         </div>
                         <div class="playlist-video-list" id="playlist-video-list">
                             <!-- Videos will be populated here -->
                         </div>
+                        <!-- Update the playlist-edit-actions section -->
                         <div class="playlist-edit-actions">
-                            <button id="delete-playlist-btn" class="danger-btn">
-                                <span class="material-symbols-outlined">delete</span>
-                                Delete Entire Playlist
-                            </button>
+                            <div>
+                                <button id="merge-playlist-btn" class="primary-btn">
+                                    <span class="material-symbols-outlined">merge</span>
+                                </button>
+                                <button id="unmerge-playlist-btn" class="primary-btn" disabled>
+                                    <span class="material-symbols-outlined">unfold_more</span>
+                                </button>
+                                <button id="share-playlist-btn" style="display:none;" class="primary-btn">
+                                    <span class="material-symbols-outlined">share</span>
+                                </button>
+                                <button id="delete-playlist-btn" class="danger-btn">
+                                    <span class="material-symbols-outlined">delete</span>
+                                </button>
+                            </div>
                             <div>
                                 <button id="cancel-playlist-edit" class="secondary-btn">
                                     Cancel
@@ -171,26 +257,29 @@
                 <div id="pagination-controls"></div>
             </container>
         </div>
+        <footer>
+            <div class="logo-container">
+                <h1>Mixify</h1>
+            </div>
+            <div class="right">
+                <button>
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=sahalashfqseo@gmail.com&su=Reporting+Bug" target="_blank">
+                        Report Bugs
+                        <span class="material-symbols-outlined">error</span>
+                    </a>
+                    </button>
+                <button>
+                    <a href="https://www.buymeacoffee.com/sahalashfaq">
+                        <img src="coffee.png" alt="" srcset="">
+                    </a>
+                </button>
+            </div>
+        </footer>
     </div>
     </div>
-    
+    <div class="toast-container"></div>
 </body>
 <script src="player.js"></script>
 <script src="https://www.youtube.com/iframe_api"></script>
-<!-- // Add this script to your page -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "Mixify Video Player",
-  "description": "Advanced tool for organizing and watching YouTube videos",
-  "applicationCategory": "MultimediaApplication",
-  "operatingSystem": "Web Browser",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "USD"
-  }
-}
-</script>
+
 </html>
