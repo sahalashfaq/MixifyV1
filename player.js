@@ -2829,24 +2829,24 @@ function enforceTermination() {
         window.open('', '_self').close();
     } catch (e) {}
     
-    // 2. If that fails, redirect to about:blank after delay
-    setTimeout(() => {
-        window.location.href = 'index.html';
+    // // 2. If that fails, redirect to about:blank after delay
+    // setTimeout(() => {
+    //     window.location.href = 'index.html';
         
-        // 3. As last resort, make page unusable
-        setTimeout(() => {
-            document.body.innerHTML = '<h1>Access Denied</h1>';
-            document.body.style.pointerEvents = 'none';
-            document.body.style.userSelect = 'none';
+    //     // 3. As last resort, make page unusable
+    //     setTimeout(() => {
+    //         document.body.innerHTML = '<h1>Access Denied</h1>';
+    //         document.body.style.pointerEvents = 'none';
+    //         document.body.style.userSelect = 'none';
             
-            // Disable all keyboard input
-            document.addEventListener('keydown', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                return false;
-            }, true);
-        }, 1000);
-    }, 500);
+    //         // Disable all keyboard input
+    //         document.addEventListener('keydown', (e) => {
+    //             e.preventDefault();
+    //             e.stopPropagation();
+    //             return false;
+    //         }, true);
+    //     }, 1000);
+    // }, 500);
 }
 
 // ===== Event Blockers =====
