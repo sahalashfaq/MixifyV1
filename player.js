@@ -593,9 +593,9 @@ function loadVideos() {
             observeParents: true,
             resistanceRatio: 0,
             breakpoints: {
-                0: { slidesPerView: 90 },
-                640: { slidesPerView: 80 },
-                1024: { slidesPerView: 60 }
+                0: { slidesPerView: 5 },
+                640: { slidesPerView: 5 },
+                1024: { slidesPerView: 5 }
             }
         }
         );
@@ -2900,3 +2900,4 @@ document.addEventListener('DOMContentLoaded', function () {
 //     handleViolation('Dragging disabled', 'warning');
 //     return false;
 // });
+
